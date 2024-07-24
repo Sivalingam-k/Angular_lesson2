@@ -1,0 +1,56 @@
+<p>directives works!</p>
+<!--Structural Directive-->
+<h2 *ngIf="isCondition">Output Of *ngid Directive</h2>
+
+<!---->
+<div *ngIf="hasValue then truepart else falsepart">
+</div>
+<ng-template #truepart>
+    <strong> Admin Login Successfully!!</strong>
+</ng-template>
+
+<ng-template #falsepart>
+    <strong> User Login Successfully!!</strong>
+</ng-template>
+<!--Use of ngFor-->
+
+<ul>
+    <li  *ngFor="let course of frontEnd" (click)="greeting(course)">{{course}}</li>
+</ul>
+
+<!--Array of Object-->
+
+<table border="">
+    <thead>
+        <tr>
+            <th>SI.NO</th>
+            <th>EMP.NO</th>
+            <th>EMPLOYEE NAME</th>
+            <th>STATUS</th>
+            <th>COMPANY</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let emp of employee,let i=index">
+        <td>{{i+1}}</td>
+        <td>{{emp.id}}</td>
+        <td>{{emp.name}}</td>
+        <td>{{emp.post}}</td>
+        <td>{{emp.Company}}</td>
+    </tr>
+</tbody>
+</table>
+
+<hr>
+
+<!--Use Of *ng Switch Case-->
+<div [ngSwitch]="selectedCourse">
+    <div *ngFor="let course of frontEnd">
+        <div *ngSwitchCase="course">You are selected {{course}}</div>
+
+    </div>
+    <div *ngSwitchDefault>Invalid Option</div>
+   
+
+
+</div>
